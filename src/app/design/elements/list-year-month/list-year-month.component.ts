@@ -11,16 +11,18 @@ export class ListYearMonthComponent implements OnInit {
 
   @Input() title: string;
   @Input() listItems: any;
-  @Input() YearMonth: YearMonthEnum;
+  @Input() yearMonth: any;
   @Output() selectEvent = new EventEmitter<any>();
 
   columnClass: string;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
 
     this.columnClass = 'd-flex justify-content-center ';
 
-    switch (this.YearMonth) {
+    switch (this.yearMonth) {
       case YearMonthEnum.YEAR:
 
         this.columnClass += 'col-md-2';
@@ -34,9 +36,6 @@ export class ListYearMonthComponent implements OnInit {
         this.columnClass += 'col-md-12';
         break;
     }
-  }
-
-  ngOnInit() {
   }
 
   select(item: any) {

@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class GingerDateMonthService {
 
   private months: any[];
+
   constructor() {
+
     this.months = new Array();
     this.months.push({'monthKey': '01', 'monthName': 'Enero' , 'monthKeyAcronym': 'Ene'});
     this.months.push({'monthKey': '02', 'monthName': 'Febrero', 'monthKeyAcronym': 'Feb'});
@@ -21,7 +23,9 @@ export class GingerDateMonthService {
     this.months.push({'monthKey': '11', 'monthName': 'Noviembre', 'monthKeyAcronym': 'Nov'});
     this.months.push({'monthKey': '12', 'monthName': 'Diciembre', 'monthKeyAcronym': 'Dic'});
   }
+
   public getMonths(): any[] {
+
     return this.months;
   }
 }

@@ -6,7 +6,12 @@
   </div>
   <div class="row">
     <div [ngClass]="columnClass" *ngFor="let item of listItems" (click)="select(item)">
-      {{item}}
+      <div [hidden]="item.monthKey">
+        {{item}}
+      </div>
+      <div [hidden]="!item.monthKey">
+        {{item.monthKey + ' ' + item.monthName}}
+      </div>
     </div>
   </div>
 </div>

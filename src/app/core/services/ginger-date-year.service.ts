@@ -10,7 +10,6 @@ export class GingerDateYearService {
 
   constructor() { }
 
-
   public getYears(): number[] {
     const years = new Array();
 

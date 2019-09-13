@@ -3,15 +3,17 @@
 </div>
 <div class="w-100 d-flex">
   <div>
-    <input type="text" />
-    <app-list-year-month [title]="'Selecciona el año'" [YearMonth]="yearMonthEnum.YEAR"></app-list-year-month>
+    <input type="text" [ngModel]="txtYear" />
+    <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
+      (selectEvent)="selectYear($event)"></app-list-year-month>
   </div>
   <div>
-    <input type="text" />
-    <app-list-year-month [title]="'Selecciona el mes'" [YearMonth]="yearMonthEnum.MOUNTH"></app-list-year-month>
+    <input type="text" [ngModel]="txtMonth" />
+    <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH" [listItems]="month"
+      (selectEvent)="selectMonth($event)"></app-list-year-month>
   </div>
   <div>
-    <input type="text" />
+    <input type="text" [ngModel]="txtDay" />
     <app-list-calendar-day [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"></app-list-calendar-day>
   </div>
 </div>

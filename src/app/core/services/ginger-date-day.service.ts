@@ -11,29 +11,42 @@ export class GingerDateDayService {
   constructor() { }
 
   public getDaysInMonth(year: number, month: number): number {
+
     return new Date(year, month, 0).getDate();
   }
+
   public getDatesOfMonth(year: number, month: number) {
+
     const daysInMont = this.getDaysInMonth(year, month);
     this.datesOfMonth = this.getDates(year, month , daysInMont);
     return this.datesOfMonth;
   }
+
   public getDates(year: number, month: number, daysInMont: number) {
+
     let datesOfWeek = new Array();
     const datesOfMonth = new Array();
+
     for (let day = 1; day <= daysInMont; day++) {
+
       const dateOfDay = new Date(year, (month - 1), day);
       if (day === 1 && dateOfDay.getDay() !== 0) {
+
         for (let index = 0; index < dateOfDay.getDay(); index++) {
+
           datesOfWeek.push({'dateOfDay': '', 'nameOfDay': this.days[index], 'day': ''});
         }
       }
+
       datesOfWeek.push({'dateOfDay': dateOfDay, 'nameOfDay': this.days[dateOfDay.getDay()], 'day': day});
+
       if (datesOfWeek.length === 7 || (day === daysInMont)) {
+
         datesOfMonth.push(datesOfWeek);
         datesOfWeek = new Array();
       }
     }
+
     return datesOfMonth;
   }
 }
