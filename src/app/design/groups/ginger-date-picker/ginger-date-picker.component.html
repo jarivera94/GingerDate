@@ -7,18 +7,19 @@
   <div class="row">
     <div class="col-6 col-without-padding">
       <input type="text" class="w-100" [ngModel]="txtYear" />
-      <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
-        (selectEvent)="selectYear($event)" [hidden]="true"></app-list-year-month>
     </div>
     <div class="col-3 col-without-padding">
       <input type="text" class="w-100" [ngModel]="txtMonth" />
-      <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH"
-        [listItems]="month" (selectEvent)="selectMonth($event)" [hidden]="true"></app-list-year-month>
     </div>
     <div class="col-3 col-without-padding">
       <input type="text" class="w-100" [ngModel]="txtDay" />
-      <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
-        (selectEvent)="selectDay($event)"></app-list-calendar-day>
     </div>
   </div>
+
+  <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
+    (selectEvent)="selectYear($event)" [hidden]="true"></app-list-year-month>
+  <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH" [listItems]="month"
+    (selectEvent)="selectMonth($event)" [hidden]="true"></app-list-year-month>
+  <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
+    (selectEvent)="selectDay($event)"></app-list-calendar-day>
 </div>
