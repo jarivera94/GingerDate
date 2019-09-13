@@ -17,8 +17,8 @@ import { ListCalendarDayComponent } from './design/elements/list-calendar-day/li
     ListCalendarDayComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     FormsModule
   ],
   providers: [],
