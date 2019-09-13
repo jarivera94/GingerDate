@@ -39,17 +39,17 @@ export class GingerDatePickerComponent implements OnInit {
   getYear() {
 
     this.year = this.gingerDateYearService.getYears();
-    console.log(this.year);
   }
 
   getMonth() {
 
     this.month = this.gingerDateMonthService.getMonths();
-    console.log(this.month);
   }
 
   getDay() {
 
+    this.day = this.gingerDateDayService.getDatesOfMonth(this.year, this.month);
+    console.log(this.day);
   }
 
   selectYear(event: any) {
