@@ -31,7 +31,7 @@ export class AppComponent {
     console.log(this.months);
   }
 
-  public getDaysInMonth() { 
-    this.gingerDateDayService.getDatesOfMonth(this.years[this.indexYear], this.months[this.indexMonth]['monthKey']);
+  public getDaysInMonth() {
+    console.log('getDaysInMonth::',this.gingerDateDayService.getDatesOfMonth(this.years[this.indexYear], this.months[this.indexMonth]['monthKey']));
   }
 }
