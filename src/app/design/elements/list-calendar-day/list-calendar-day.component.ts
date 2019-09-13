@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-calendar-day',
@@ -10,12 +9,18 @@ export class ListCalendarDayComponent implements OnInit {
 
   @Input() title: string;
   @Input() subTitle: string;
-  @Input() listItems: any;
   @Output() selectEvent = new EventEmitter<any>();
+
+  month: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setCalendar(month: any) {
+
+    this.month = month;
   }
 
   select(item: any) {

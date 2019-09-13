@@ -14,6 +14,7 @@
   </div>
   <div>
     <input type="text" [ngModel]="txtDay" />
-    <app-list-calendar-day [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"></app-list-calendar-day>
+    <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'" 
+      (selectEvent)="selectDay($event)"></app-list-calendar-day>
   </div>
 </div>

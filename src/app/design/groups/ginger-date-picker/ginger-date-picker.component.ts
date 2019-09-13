@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { YearMonthEnum } from 'src/app/core/enums/year-month.enum';
 import { GingerDateYearService } from 'src/app/core/services/ginger-date-year.service';
 import { GingerDateMonthService } from 'src/app/core/services/ginger-date-month.service';
 import { GingerDateDayService } from 'src/app/core/services/ginger-date-day.service';
+import { ListCalendarDayComponent } from '../../elements/list-calendar-day/list-calendar-day.component';
 
 @Component({
   selector: 'app-ginger-date-picker',
@@ -13,6 +14,7 @@ import { GingerDateDayService } from 'src/app/core/services/ginger-date-day.serv
 export class GingerDatePickerComponent implements OnInit {
 
   @Input() title: string;
+  @ViewChild('listDay') listDay: ListCalendarDayComponent;
 
   yearMonthEnum = YearMonthEnum;
 
@@ -24,6 +26,9 @@ export class GingerDatePickerComponent implements OnInit {
   txtMonth: any;
   txtDay: any;
 
+  valMonth: any;
+  valDate: any;
+
   constructor(
     private gingerDateYearService: GingerDateYearService,
     private gingerDateMonthService: GingerDateMonthService,
@@ -33,7 +38,6 @@ export class GingerDatePickerComponent implements OnInit {
 
     this.getYear();
     this.getMonth();
-    this.getDay();
   }
 
   getYear() {
@@ -48,8 +52,7 @@ export class GingerDatePickerComponent implements OnInit {
 
   getDay() {
 
-    this.day = this.gingerDateDayService.getDatesOfMonth(this.year, this.month);
-    console.log(this.day);
+    this.listDay.setCalendar(this.gingerDateDayService.getDatesOfMonth(this.txtYear, this.valMonth));
   }
 
   selectYear(event: any) {
@@ -60,5 +63,13 @@ export class GingerDatePickerComponent implements OnInit {
   selectMonth(event: any) {
 
     this.txtMonth = event.monthKeyAcronym;
+    this.valMonth = event.monthKey;
+    this.getDay();
+  }
+
+  selectDay(event: any) {
+
+    this.txtDay = event.day;
+    this.valDate = event.dateOfDay;
   }
 }

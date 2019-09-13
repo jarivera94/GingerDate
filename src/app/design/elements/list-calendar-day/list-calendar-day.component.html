@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-start">
-      {{subtitle}}
+      {{subTitle}}
     </div>
   </div>
   <div class="row">
@@ -10,10 +10,35 @@
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let week of month">
-      <div *ngFor="let day of week" (click)="select(day)">
-        {{day}}
-      </div>
-    </div>
+    <table>
+      <tr>
+        <th scope="col">
+          D
+        </th>
+        <th scope="col">
+          L
+        </th>
+        <th scope="col">
+          M
+        </th>
+        <th scope="col">
+          M
+        </th>
+        <th scope="col">
+          J
+        </th>
+        <th scope="col">
+          V
+        </th>
+        <th scope="col">
+          S
+        </th>
+      </tr>
+      <tr *ngFor="let week of month">
+        <td *ngFor="let day of week" (click)="select(day)">
+          {{day.day}}
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
