@@ -1,20 +1,24 @@
-<div class="w-100">
-  <label>{{title}}</label>
-</div>
-<div class="w-100 d-flex">
-  <div>
-    <input type="text" [ngModel]="txtYear" />
-    <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
-      (selectEvent)="selectYear($event)"></app-list-year-month>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-without-padding">
+      <label>{{title}}</label>
+    </div>
   </div>
-  <div>
-    <input type="text" [ngModel]="txtMonth" />
-    <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH" [listItems]="month"
-      (selectEvent)="selectMonth($event)"></app-list-year-month>
-  </div>
-  <div>
-    <input type="text" [ngModel]="txtDay" />
-    <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'" 
-      (selectEvent)="selectDay($event)"></app-list-calendar-day>
+  <div class="row">
+    <div class="col-6 col-without-padding">
+      <input type="text" class="w-100" [ngModel]="txtYear" />
+      <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
+        (selectEvent)="selectYear($event)" [hidden]="true"></app-list-year-month>
+    </div>
+    <div class="col-3 col-without-padding">
+      <input type="text" class="w-100" [ngModel]="txtMonth" />
+      <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH"
+        [listItems]="month" (selectEvent)="selectMonth($event)" [hidden]="true"></app-list-year-month>
+    </div>
+    <div class="col-3 col-without-padding">
+      <input type="text" class="w-100" [ngModel]="txtDay" />
+      <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
+        (selectEvent)="selectDay($event)"></app-list-calendar-day>
+    </div>
   </div>
 </div>

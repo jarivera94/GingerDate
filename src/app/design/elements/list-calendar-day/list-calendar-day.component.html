@@ -10,35 +10,37 @@
     </div>
   </div>
   <div class="row">
-    <table>
-      <tr>
-        <th scope="col">
-          D
-        </th>
-        <th scope="col">
-          L
-        </th>
-        <th scope="col">
-          M
-        </th>
-        <th scope="col">
-          M
-        </th>
-        <th scope="col">
-          J
-        </th>
-        <th scope="col">
-          V
-        </th>
-        <th scope="col">
-          S
-        </th>
-      </tr>
-      <tr *ngFor="let week of month">
-        <td *ngFor="let day of week" (click)="select(day)">
-          {{day.day}}
-        </td>
-      </tr>
-    </table>
+    <div class="col-md-12">
+      <table class="w-100">
+        <tr>
+          <th class="w-14.28" scope="col">
+            D
+          </th>
+          <th class="w-14.28" scope="col">
+            L
+          </th>
+          <th class="w-14.28" scope="col">
+            M
+          </th>
+          <th class="w-14.28" scope="col">
+            M
+          </th>
+          <th class="w-14.28" scope="col">
+            J
+          </th>
+          <th class="w-14.28" scope="col">
+            V
+          </th>
+          <th class="w-14.28" scope="col">
+            S
+          </th>
+        </tr>
+        <tr *ngFor="let week of month">
+          <td *ngFor="let day of week" (click)="select(day)">
+            {{day.day}}
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
