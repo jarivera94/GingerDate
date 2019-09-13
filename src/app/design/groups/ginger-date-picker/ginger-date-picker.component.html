@@ -1,25 +1,28 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 col-without-padding">
+    <div class="col-12 col-without-padding">
       <label>{{title}}</label>
     </div>
   </div>
-  <div class="row">
+  <div class="row border">
     <div class="col-6 col-without-padding">
-      <input type="text" class="w-100" [ngModel]="txtYear" />
+      <input type="text" class="w-100 border-0" [ngModel]="txtYear" (focus)="showList(1)" placeholder="AÑO" />
     </div>
     <div class="col-3 col-without-padding">
-      <input type="text" class="w-100" [ngModel]="txtMonth" />
+      <input type="text" class="w-100 border-0" [ngModel]="txtMonth" (focus)="showList(2)" placeholder="MES" />
     </div>
     <div class="col-3 col-without-padding">
-      <input type="text" class="w-100" [ngModel]="txtDay" />
+      <input type="text" class="w-100 border-0" [ngModel]="txtDay" (focus)="showList(3)" placeholder="DÍA" />
     </div>
   </div>
-
-  <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
-    (selectEvent)="selectYear($event)" [hidden]="true"></app-list-year-month>
-  <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH" [listItems]="month"
-    (selectEvent)="selectMonth($event)" [hidden]="true"></app-list-year-month>
-  <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
-    (selectEvent)="selectDay($event)"></app-list-calendar-day>
+  <div class="row">
+    <div class="col-12">
+      <app-list-year-month #listYear [title]="'Selecciona el año'" [yearMonth]="yearMonthEnum.YEAR" [listItems]="year"
+        (selectEvent)="selectYear($event)" [hidden]="listElement !== 1"></app-list-year-month>
+      <app-list-year-month #listMonth [title]="'Selecciona el mes'" [yearMonth]="yearMonthEnum.MONTH"
+        [listItems]="month" (selectEvent)="selectMonth($event)" [hidden]="listElement !== 2"></app-list-year-month>
+      <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
+        (selectEvent)="selectDay($event)" [hidden]="listElement !== 3"></app-list-calendar-day>
+    </div>
+  </div>
 </div>

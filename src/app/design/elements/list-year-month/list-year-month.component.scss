@@ -1,0 +1,16 @@
+:host {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .divContent {
+        height: 200px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .text-list {
+        font-size: 0.8em;
+    }
+}

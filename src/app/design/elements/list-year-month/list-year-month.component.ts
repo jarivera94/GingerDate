@@ -20,20 +20,20 @@ export class ListYearMonthComponent implements OnInit {
 
   ngOnInit() {
 
-    this.columnClass = 'd-flex justify-content-center ';
+    this.columnClass = 'd-flex justify-content-center col-without-padding ';
 
     switch (this.yearMonth) {
       case YearMonthEnum.YEAR:
 
-        this.columnClass += 'col-md-2';
+        this.columnClass += 'col-3';
         break;
       case YearMonthEnum.MONTH:
 
-        this.columnClass += 'col-md-4';
+        this.columnClass += 'col-6';
         break;
       default:
 
-        this.columnClass += 'col-md-12';
+        this.columnClass += 'col-12';
         break;
     }
   }

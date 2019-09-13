@@ -18,13 +18,14 @@ export class GingerDatePickerComponent implements OnInit {
 
   yearMonthEnum = YearMonthEnum;
 
+  listElement: number;
   year: any;
   month: any;
   day: any;
 
-  txtYear: any;
-  txtMonth: any;
-  txtDay: any;
+  txtYear: string;
+  txtMonth: string;
+  txtDay: string;
 
   valMonth: any;
   valDate: any;
@@ -52,18 +53,26 @@ export class GingerDatePickerComponent implements OnInit {
 
   getDay() {
 
-    this.listDay.setCalendar(this.gingerDateDayService.getDatesOfMonth(this.txtYear, this.valMonth));
+    if (this.txtYear !== '' && this.txtMonth !== '') {
+
+      this.listDay.setCalendar(this.gingerDateDayService.getDatesOfMonth(+this.txtYear, +this.valMonth));
+    }
   }
 
   selectYear(event: any) {
 
     this.txtYear = event;
+    this.listElement = 0;
+
+    this.getDay();
   }
 
   selectMonth(event: any) {
 
     this.txtMonth = event.monthKeyAcronym;
     this.valMonth = event.monthKey;
+    this.listElement = 0;
+
     this.getDay();
   }
 
@@ -71,5 +80,11 @@ export class GingerDatePickerComponent implements OnInit {
 
     this.txtDay = event.day;
     this.valDate = event.dateOfDay;
+    this.listElement = 0;
+  }
+
+  showList(listSelect: number) {
+
+    this.listElement = listSelect;
   }
 }

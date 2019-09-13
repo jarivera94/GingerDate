@@ -17,9 +17,6 @@ export class GingerDateDayService {
 
   public getDatesOfMonth(year: number, month: number) {
 
-    console.log('year: ' + year);
-    console.log('month: ' + month);
-
     const daysInMont = this.getDaysInMonth(year, month);
     this.datesOfMonth = this.getDates(year, month , daysInMont);
     return this.datesOfMonth;

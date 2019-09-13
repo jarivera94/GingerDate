@@ -11,9 +11,11 @@ export class GingerDateYearService {
   constructor() { }
 
   public getYears(): number[] {
+
     const years = new Array();
 
     for (let i = this.initYear ; i <= this.limitYear ; i++) {
+
       years.push(i);
     }
 
