@@ -1,13 +1,2 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-<button (click)="getYears()">get list all years</button>
-<button (click)="getMonths()">get list all month by year</button>
-<input type="text" id="indexYear" name="indexYear" 
-      [(ngModel)]="indexYear" placeholder="write index of year" />
-
-<input type="text" id="indexMonth" name="indexMonth" 
-      [(ngModel)]="indexMonth" placeholder="write index of month" />
-
-<button (click)="getDaysInMonth()">get list all month by year</button>
-</div>
 <router-outlet></router-outlet>
+<app-ginger-date-picker [title]="'Fecha'"></app-ginger-date-picker>

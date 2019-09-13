@@ -1,0 +1,17 @@
+<div class="w-100">
+  <label>{{title}}</label>
+</div>
+<div class="w-100 d-flex">
+  <div>
+    <input type="text" />
+    <app-list-year-month [title]="'Selecciona el año'" [YearMonth]="yearMonthEnum.YEAR"></app-list-year-month>
+  </div>
+  <div>
+    <input type="text" />
+    <app-list-year-month [title]="'Selecciona el mes'" [YearMonth]="yearMonthEnum.MOUNTH"></app-list-year-month>
+  </div>
+  <div>
+    <input type="text" />
+    <app-list-calendar-day [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"></app-list-calendar-day>
+  </div>
+</div>
