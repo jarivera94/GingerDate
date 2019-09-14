@@ -1,5 +1,22 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-12">
+      <label>Dia seleccionado: </label>
+      {{valDate | date:format}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <select class='form-control' [(ngModel)]="format">
+        <option value='dd/MM/yyyy'>dd/MM/yyyy</option>
+        <option value='M/d/yy'>M/d/yy</option>
+        <option value='MMM d, y'>MMM d, y</option>
+        <option value='MMMM d, y'>MMMM d, y</option>
+        <option value='EEEE, MMMM d, y'>EEEE, MMMM d, y</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-12 col-without-padding">
       <label>{{title}}</label>
     </div>
@@ -23,25 +40,6 @@
         [listItems]="month" (selectEvent)="selectMonth($event)" [hidden]="listElement !== 2"></app-list-year-month>
       <app-list-calendar-day #listDay [title]="'Selecciona el día'" [subTitle]="'* Debes seleccionar un día'"
         (selectEvent)="selectDay($event)" [hidden]="listElement !== 3"></app-list-calendar-day>
-    </div>
-    
-  </div>
-  <div class="row"> 
-    <div class="col-12">
-      <label>Dia seleccionado : </label>
-      {{valDate | date:format}}
-    </div>
-  </div>
-  <div class="row"> 
-    <div class="col-12">
-      <select  class='form-control' 
-        [(ngModel)]="format">
-        <option value='dd/MM/yyyy'>dd/MM/yyyy</option>
-        <option value='M/d/yy'>M/d/yy</option>
-        <option value='MMM d, y'>MMM d, y</option>
-        <option value='MMMM d, y'>MMMM d, y</option>
-        <option value='EEEE, MMMM d, y'>EEEE, MMMM d, y</option>
-      </select>
     </div>
   </div>
 </div>
