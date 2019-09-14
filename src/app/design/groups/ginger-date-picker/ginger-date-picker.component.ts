@@ -30,6 +30,7 @@ export class GingerDatePickerComponent implements OnInit {
   valMonth: any;
   valDate: any;
 
+  format: 'dd/MM/yyyy';
   constructor(
     private gingerDateYearService: GingerDateYearService,
     private gingerDateMonthService: GingerDateMonthService,
