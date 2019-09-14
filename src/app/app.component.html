@@ -1,4 +1,15 @@
-<router-outlet></router-outlet>
-<div style="width: 200px;">
-    <app-ginger-date-picker #gingerDatePicker [title]="'Fecha'"></app-ginger-date-picker>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <app-ginger-date-picker [title]="'Fecha'" [gingerRange]="false"></app-ginger-date-picker>
+        </div>
+        <div class="col-4">
+            <app-ginger-date-picker [title]="'Fecha Desde'" [gingerRange]="true" [gingerName]="'gingerFront'">
+            </app-ginger-date-picker>
+        </div>
+        <div class="col-4">
+            <app-ginger-date-picker [title]="'Fecha Hasta'" [gingerRange]="true" [gingerName]="'gingerTo'"
+              [gingerNameFather]="'gingerFront'"></app-ginger-date-picker>
+        </div>
+    </div>
 </div>

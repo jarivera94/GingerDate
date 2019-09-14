@@ -10,7 +10,5 @@ import { GingerDatePickerComponent } from './design/groups/ginger-date-picker/gi
 
 export class AppComponent {
 
-  @ViewChild('gingerDatePicker') gingerDatePicker: GingerDatePickerComponent;
-
   constructor() { }
 }

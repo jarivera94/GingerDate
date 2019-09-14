@@ -5,6 +5,7 @@ import { GingerDateYearService } from 'src/app/core/services/ginger-date-year.se
 import { GingerDateMonthService } from 'src/app/core/services/ginger-date-month.service';
 import { GingerDateDayService } from 'src/app/core/services/ginger-date-day.service';
 import { ListCalendarDayComponent } from '../../elements/list-calendar-day/list-calendar-day.component';
+import { GingerParentService } from 'src/app/core/services/ginger-parent.service';
 
 @Component({
   selector: 'app-ginger-date-picker',
@@ -14,6 +15,9 @@ import { ListCalendarDayComponent } from '../../elements/list-calendar-day/list-
 export class GingerDatePickerComponent implements OnInit {
 
   @Input() title: string;
+  @Input() gingerRange: boolean;
+  @Input() gingerName: string;
+  @Input() gingerNameFather: string;
   @ViewChild('listDay') listDay: ListCalendarDayComponent;
 
   yearMonthEnum = YearMonthEnum;
@@ -32,11 +36,19 @@ export class GingerDatePickerComponent implements OnInit {
 
   format: 'dd/MM/yyyy';
   constructor(
+    private gingerParentService: GingerParentService,
     private gingerDateYearService: GingerDateYearService,
     private gingerDateMonthService: GingerDateMonthService,
     private gingerDateDayService: GingerDateDayService) { }
 
   ngOnInit() {
+
+    if (this.gingerRange) {
+      this.gingerParentService.addGinger({
+        name: this.gingerName,
+        nameFather: this.gingerNameFather,
+      });
+    }
 
     this.getYear();
     this.getMonth();
@@ -82,6 +94,15 @@ export class GingerDatePickerComponent implements OnInit {
     this.txtDay = event.day;
     this.valDate = event.dateOfDay;
     this.listElement = 0;
+
+    if (this.gingerRange) {
+      if (!this.gingerParentService.addGingerDate(this.gingerName, this.valDate, this.gingerParentService.getDateFather(this.gingerName))) {
+
+        this.txtYear = '';
+        this.txtMonth = '';
+        this.txtDay = '';
+      }
+    }
   }
 
   showList(listSelect: number) {

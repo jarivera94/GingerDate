@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GingerDateYearService {
 
-  private initYear = 1950;
+  private initYear = 1980;
   private limitYear = 2050;
 
   constructor() { }
