@@ -33,8 +33,10 @@ export class GingerParentService {
           console.log(gingerDateFather);
           console.log(gingerDateFather.getTime());
           console.log(gingerDate.getTime());
+          console.log(gingerDateFather.getTime() < gingerDate.getTime());
+          console.log(gingerDateFather.getTime() > gingerDate.getTime());
 
-          if (gingerDateFather.getTime() < gingerDate.getTime()) {
+          if (gingerDateFather.getTime() > gingerDate.getTime()) {
 
             response = false;
           } else {
